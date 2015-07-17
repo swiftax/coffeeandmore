@@ -61,13 +61,6 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
-    signed_out = (User.sign_out_all_scopes ? sign_out : sign_out(resource_name))
-    render :json => {
-    'csrfParam' => request_forgery_protection_token,
-    'csrfToken' => form_authenticity_token
-  }.to_json
-    end
-  end
   end
 
 
